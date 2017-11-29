@@ -1,5 +1,5 @@
 #coding: utf-8
-heimport time
+import time
 import random
 import hashlib
 import requests
