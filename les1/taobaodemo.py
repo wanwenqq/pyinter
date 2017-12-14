@@ -43,9 +43,11 @@ if __name__ == '__main__':
     
 
 
+    # 根据url获取html文本
     res = getHTMLText(url)
 
+    # 根据获限的文本信息解析成数组
     parserHTMLText(ulist,res)
 
-
+    # 格式化打印数据
     printuList(ulist)
