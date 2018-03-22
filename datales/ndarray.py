@@ -46,8 +46,18 @@ if __name__ == '__main__':
 
 
     a = np.arange(24).reshape((2,3,4))
-    # print(a)
-    print(a[1,2,3])
-    print(a[0,1,2])
-    print(a[-1,-2,-3])
+    print(a)
+    # print(a[1,2,3])
+    # print(a[0,1,2])
+    # print(a[-1,-2,-3])
+    # print(a[:,1,-3])
+    # print(a[:,1:3,:])
+    # print(a[:,:,::2])
+
+    # print(a/a.mean())
+
+    # print(np.square(a))
+    # print(np.sqrt(a))
+    # print(np.modf(a))
+
     

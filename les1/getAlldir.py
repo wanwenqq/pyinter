@@ -17,4 +17,4 @@ def get_all(cwd):
 
 if __name__ == '__main__':
     cur_path = os.getcwd()
-    get_all(cur_path)
+    get_all(cur_path) 
