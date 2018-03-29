@@ -1,6 +1,5 @@
 # -*- coding : utf-8 -*-
 
-__auther__ = 'Anders'
 
 import logging,asyncio,aiomysql
 
