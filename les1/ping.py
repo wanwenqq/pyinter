@@ -1,4 +1,4 @@
-# -*- coding:UTF-8 -*-
+# -*- coding:utf-8 -*-
 import subprocess as sp
 
 if __name__ == '__main__':
