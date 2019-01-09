@@ -1,4 +1,4 @@
-# -*- coding:UTF-8 -*-
+# -*- coding:utf-8 -*-
 
 
 import os
@@ -12,6 +12,8 @@ from urllib.request import urlopen
 from datetime import date
 import zlib
 from string import Template
+import psutil
+
 
 
 # print (os.getcwd())
@@ -56,6 +58,16 @@ from string import Template
 
 
 
-t = Template('${village}folk send $$10 to $cause.')  
-print (t.substitute(village='Nottingham', cause='the ditch fund'))
+# t = Template('${village}folk send $$10 to $cause.')  
+# print (t.substitute(village='Nottingham', cause='the ditch fund'))
+
+# L = ['Bart', 'Lisa', 'Adam']
+# for x in L:
+#     str =  'Hello,'+x
+#     print(str)
+
+
+print(psutil.cpu_count(logical=False))
+
+print(psutil.disk_partitions())
 
