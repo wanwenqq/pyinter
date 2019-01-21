@@ -19,6 +19,9 @@ def deal_task(pool):
         print (str(e))
 
 #lst = [1,2,3,4,5,6,7]
+
+
+
 q = queue.Queue()
 for i in range(100):
     q.put(i)
