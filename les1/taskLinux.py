@@ -1,11 +1,11 @@
 # -*- coding:utf-8 -*-
 
-import random, time, Queue
+import random, time, queue
 from multiprocessing.managers import BaseManager
  
 #第一步：建立task_queue和result_queue，用来存放任务和结果
-task_queue = Queue.Queue()
-result_queue = Queue.Queue()
+task_queue = queue.Queue()
+result_queue = queue.Queue()
  
 class Queuemanager(BaseManager):
 	pass
@@ -15,7 +15,7 @@ Queuemanager.register('get_task_queue', callable=lambda: task_queue)
 Queuemanager.register('get_result_queue', callable=lambda: result_queue)
  
 #第三步:绑定端口8001，设置验证口令'lyz',这个相当于对象的初始化
-manager = Queuemanager(address=('', 8001), authkey='lyz')
+manager = Queuemanager(address=('', 8001), authkey='qiye'.encode(encoding='UTF-8'))
  
 #第四步：启动管理，监听信息通道
 manager.start()
