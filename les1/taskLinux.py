@@ -1,11 +1,11 @@
 # -*- coding:utf-8 -*-
 
-import random, time, Queue
+import random, time, queue
 from multiprocessing.managers import BaseManager
  
 #第一步：建立task_queue和result_queue，用来存放任务和结果
-task_queue = Queue.Queue()
-result_queue = Queue.Queue()
+task_queue = queue.Queue()
+result_queue = queue.Queue()
  
 class Queuemanager(BaseManager):
 	pass
