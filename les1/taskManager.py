@@ -56,6 +56,8 @@ def win_run():
         manager.shutdown()
 
 
+
+
 if __name__ == '__main__':
     # window下多进程可能有问题，添加这句话缓解
     freeze_support()
