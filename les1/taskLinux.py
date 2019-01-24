@@ -32,7 +32,7 @@ for url in ["ImageUrl_" + str(i) for i in range(10)]:
 #获取返回结果
 print ('try get result...')
 for i in range(10):
-	print ('result is %s' % result.get(timeout=10))
+	print (result.get(timeout=10))
  
 #关闭管理
 manager.shutdown()
