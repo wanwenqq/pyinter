@@ -14,7 +14,7 @@ class DBHelper:
         self.password = dc['password']
         self.database = dc['database']
         self.charset = dc['charset']
-        self.db = None
+        self.db = None 
         self.curs = None
 
     # 打开数据库

@@ -4,24 +4,20 @@ from multiprocessing import Pool
 import os
 import time
  
-def Foo(i):
-    time.sleep(2)
-    return i + 100
-
-def Bar(arg):
-    print (arg)
+def long_time_task(name):
+    print('Run task %s (%s)...' % (name, os.getpid()))
+    start = time.time()
+    # time.sleep(random.random() * 3)
+    time.sleep(1)
+    end = time.time()
+    print('Task %s runs %0.2f seconds.' % (name, (end - start)))
  
 if __name__ == '__main__':
-    t_start=time.time()
-    pool = Pool(5)
-
-    for i in range(10):
-        # pool.apply_async(func=Foo, args=(i,), callback=Bar)#维持执行的进程总数为processes，当一个进程执行完毕后会添加新的进程进去
-        pool.apply(Foo,(i,))
-
-    pool.close()
-    pool.join()  # 进程池中进程执行完毕后再关闭，如果注释，那么程序直接关闭。
-    # pool.terminate()
-    t_end=time.time()
-    t=t_end-t_start
-    print ('the program time is :%s' %t)
+    print('Parent process %s.' % os.getpid())
+    p = Pool(8)
+    for i in range(9):
+        p.apply_async(long_time_task, args=(i,))
+    print('Waiting for all subprocesses done...')
+    p.close()
+    p.join()
+    print('All subprocesses done.')
