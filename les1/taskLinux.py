@@ -10,6 +10,7 @@ result_queue = queue.Queue()
 class Queuemanager(BaseManager):
 	pass
  
+ 
 #第二步：把创建的两个队列注册在网络上，利用register方法，callable参数关联了Queue对象，将Queue对象在网络中暴露
 Queuemanager.register('get_task_queue', callable=lambda: task_queue)
 Queuemanager.register('get_result_queue', callable=lambda: result_queue)
@@ -26,6 +27,8 @@ try:
     task = manager.get_task_queue()
     result = manager.get_result_queue()
 
+
+
     # 添加任务
     for url in ["ImageUrl_" + str(i) for i in range(10)]:
         print('url is %s' % url)
@@ -39,4 +42,5 @@ except Exception as e:
     print (str(e))
 finally:
     manager.shutdown()
- 
+
+
