@@ -20,19 +20,23 @@ manager = Queuemanager(address=('', 8001), authkey='qiye'.encode(encoding='UTF-8
 #第四步：启动管理，监听信息通道
 manager.start()
  
-#第五步：通过管理实例的方法获得通过网络访问的Queue对象
-task = manager.get_task_queue()
-result = manager.get_result_queue()
+try:
+
+    # 通过网络获取任务队列和结果队列
+    task = manager.get_task_queue()
+    result = manager.get_result_queue()
+
+    # 添加任务
+    for url in ["ImageUrl_" + str(i) for i in range(10)]:
+        print('url is %s' % url)
+        task.put(url)
+
+    print('try get result')
+    for i in range(10):
+        print('result is %s' % result.get(timeout=10))
+
+except Exception as e:
+    print (str(e))
+finally:
+    manager.shutdown()
  
-#第六步：添加任务
-for url in ["ImageUrl_" + str(i) for i in range(10)]:
-	print ('put task %s ...' % url)
-	task.put(url)
- 
-#获取返回结果
-print ('try get result...')
-for i in range(10):
-	print ('result is %s' % result.get(timeout=10))
- 
-#关闭管理
-manager.shutdown()
